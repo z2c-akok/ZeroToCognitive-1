@@ -7,5 +7,5 @@ applications:
   host: Z2C-akok
   disk_quota: 1024M
   services:
-    - Speech to Text-ar
+    - Speech to Text-a5
     - Text to Speech-lr
