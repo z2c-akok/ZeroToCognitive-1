@@ -47,7 +47,7 @@ function initPage ()
 
   _stop.on("click",  function()
   {
-    console.log("Stopping speech-to-text service...");
+    console.log("Stopping speech-to-text service...");//watson stop listening, watson to talk
     if (stream != undefined) {stream.stop(); }
     _mic.addClass("mic_enabled");
     _mic.removeClass("mic_disabled");
@@ -65,10 +65,10 @@ function initPage ()
     _stop.removeClass("mic_enabled");
 
     var sessionPermissions = JSON.parse(localStorage.getItem('sessionPermissions')) ? 0 : 1;
-    var textString = $("#chat").val();
+    var textString = $("#chat").val(); //where to read from = "chat" in index.html
     var voice = 'en-US_AllisonVoice';
-    var audio = $("#a_player").get(0);
-    var synthesizeURL = '/api/text-to-speech/synthesize' +
+    var audio = $("#a_player").get(0); //address of player
+    var synthesizeURL = '/api/text-to-speech/synthesize' + //from router.js
       '?voice=' + voice +
       '&text=' + encodeURIComponent(textString) +
       '&X-WDC-PL-OPT-OUT=' +  sessionPermissions;

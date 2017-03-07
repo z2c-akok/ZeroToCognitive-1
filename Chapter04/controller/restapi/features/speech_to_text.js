@@ -37,5 +37,14 @@ exports.stt_token = function(req, res) {
 
 exports.tts_synthesize = function(req, res) {
   console.log("tts_synthesize entered");
-
+    var ttsConfig = watson.text_to_speech(config.text_to_speech); //config = env.json file, get creds
+    var transcript = ttsConfig.synthesize(req.query); //req=request passed in fr browser, query = command, POST
+    transcript.on('response', function(response) {
+      if (req.query.download) {
+        response.headers['content-disposition'] = 'attachment; filename=transcript.ogg';
+      }
+    });
+    transcript.on('error', function(error) { console.log("error encountered: "+error); next(error); });
+    transcript.pipe(res); //res = result, how send info/audio back to browser, js object
 }
+
