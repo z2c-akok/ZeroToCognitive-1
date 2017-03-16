@@ -3,11 +3,11 @@ applications:
   memory: 256M
   instances: 1
   domain: mybluemix.net
-  name: Z2C
-  host: Z2C
+  name: Z2C-akok
+  host: Z2C-akok
   disk_quota: 1024M
   services:
-    - Speech to Text-xx
-    - Text to Speech-xx
-    - Natural Language Classifier-xx
-    - Cloudant NoSQL DB-xx
+    - Speech to Text-5a
+    - Text to Speech-lr
+    - Natural Language Classifier-lt
+    - Cloudant NoSQL DB-7g
